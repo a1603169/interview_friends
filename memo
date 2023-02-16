@@ -1,0 +1,47 @@
+"use strict";
+
+/**
+ * quiz controller
+ */
+
+// const { createCoreController } = require("@strapi/strapi").factories;
+
+// module.exports = createCoreController("api::quiz.quiz");
+
+module.exports = {
+  async find(ctx) {
+    const quizzes = await strapi.services.quiz.find();
+    return quizzes;
+  },
+
+  async findOne(ctx) {
+    const quiz = await strapi.services.quiz.findOne(ctx.params);
+    return quiz;
+  },
+
+  async findOneByTitle(ctx) {
+    const { title } = ctx.params;
+    const quiz = await strapi.services.quiz.findOneByTitle({ title });
+    return quiz;
+  },
+
+  async create(ctx) {
+    const { title, questions } = ctx.request.body;
+    const quiz = await strapi.services.quiz.create({ title, questions });
+    return quiz;
+  },
+
+  async update(ctx) {
+    const { id } = ctx.params;
+    const quiz = await strapi.services.quiz.update({ id }, ctx.request.body);
+    return quiz;
+  },
+
+  async delete(ctx) {
+    const { id } = ctx.params;
+    const quiz = await strapi.services.quiz.delete({ id });
+    return quiz;
+  },
+};
+
+///

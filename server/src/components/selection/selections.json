@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_selection_selections",
+  "info": {
+    "displayName": "selections"
+  },
+  "options": {},
+  "attributes": {
+    "answer": {
+      "type": "text"
+    },
+    "selection": {
+      "type": "text"
+    },
+    "selection_2": {
+      "type": "text"
+    },
+    "selection_3": {
+      "type": "text"
+    }
+  }
+}
